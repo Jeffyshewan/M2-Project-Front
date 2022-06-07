@@ -4,7 +4,6 @@ import {HomeComponent} from "./pages/home/home.component";
 import {LoginComponent} from "./features/login/login.component";
 import {LogoutComponent} from "./features/logout/logout.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
-import {NotFoundComponent} from "./features/not-found/not-found.component";
 
 
 const routes: Routes = [
@@ -15,6 +14,10 @@ const routes: Routes = [
   {
     path: 'airports',
     loadChildren: () => import('./pages/aiports/airports.module').then(m => m.AirportsModule),
+  },
+  {
+    path: 'companies',
+    loadChildren: () => import('./pages/companies/companies.module').then(m => m.CompaniesModule),
   },
   {
     path: 'profile',
@@ -30,7 +33,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: NotFoundComponent,
+    component: HomeComponent,
   }
 ];
 

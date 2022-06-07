@@ -12,11 +12,7 @@ import {FooterComponent} from './features/footer/footer.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
-import {MatMenuModule} from "@angular/material/menu";
-import {NotFoundComponent} from './features/not-found/not-found.component';
-import {AiportsComponent} from './pages/aiports/aiports.component';
-import {AgGridModule} from "ag-grid-angular";
-import {AirportComponent} from './pages/aiports/airport/airport.component';
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -27,7 +23,6 @@ import {AirportComponent} from './pages/aiports/airport/airport.component';
     HomeComponent,
     NavigationComponent,
     FooterComponent,
-    NotFoundComponent,
 
   ],
   imports: [
@@ -36,6 +31,7 @@ import {AirportComponent} from './pages/aiports/airport/airport.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatButtonModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

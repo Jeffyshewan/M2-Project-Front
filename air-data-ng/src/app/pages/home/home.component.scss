@@ -1,0 +1,33 @@
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  mat-card-title {
+    font-size: 30px;
+  }
+  p {
+    text-align: justify;
+    margin: 10px 10px 0 10px;
+  }
+  .home-card {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+
+    img {
+      width: 100%;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      button {
+        font-size: 20px;
+        margin: 5px;
+        align-content: center;
+      }
+    }
+  }
+}

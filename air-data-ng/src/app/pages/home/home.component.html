@@ -1,2 +1,29 @@
-<p *ngFor="let c of countries">{{c.code}}</p>
-fvsgdfqgv
+<div class="cards">
+  <mat-card class="home-card">
+    <mat-card-header>
+      <mat-card-title>Find an airport</mat-card-title>
+    </mat-card-header>
+    <img src="https://media.lesechos.com/api/v1/images/view/6253fa89061c366bea6bcbd9/1280x720/0701333651695-web-tete.jpg">
+    <mat-card-content>
+      <p>Here you can access to the list of all airports in the world. You can also filter with every parameters that are present.
+      You can find also, information about contact and the location with a map.</p>
+    </mat-card-content>
+    <mat-card-actions class="buttons">
+      <button mat-button routerLink="/airports"> <mat-icon>flight_takeoff</mat-icon> FIND AN AIRPORT</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="home-card">
+    <mat-card-header>
+      <mat-card-title>Check airline companies</mat-card-title>
+    </mat-card-header>
+    <img src="https://cap.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcap.2F2017.2F05.2F12.2F436db807-f55e-4942-8777-ce1fc1481dc6.2Ejpeg/1200x630/background-color/ffffff/quality/70/cr/wqkgUGl4YWJheSAvIENBUElUQUw%3D/compagnie-aerienne-le-defi-de-la-securite-et-de-la-rentabilite-1233875.jpg">
+    <mat-card-content>
+      <p>Here you can access to the list of all airports in the world. You can also filter with every parameters that are present.
+        You can find also, information about contact and the location with a map.</p>
+    </mat-card-content>
+    <mat-card-actions class="buttons">
+      <button mat-button routerLink="/companies"> <mat-icon>flight_takeoff</mat-icon> FIND A COMPANY</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

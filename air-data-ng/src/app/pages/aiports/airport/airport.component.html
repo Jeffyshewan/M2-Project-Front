@@ -14,13 +14,17 @@
           <div>iata code : {{airport.iata}}</div>
           <div>icao code : {{airport.icao}}</div>
         </span>
+      </mat-card-content>
 
+      <mat-card-content>
         <p>Contact : </p>
         <span>
           <div>phone : {{airport.phone}}</div>
-          <div>phone : {{airport.website}}</div>
+          <div>website : <a href="{{airport.website}}">{{airport.website}}</a></div>
         </span>
+      </mat-card-content>
 
+      <mat-card-content>
         <p>Location : </p>
         <div id="map"><google-map
           height="400px"

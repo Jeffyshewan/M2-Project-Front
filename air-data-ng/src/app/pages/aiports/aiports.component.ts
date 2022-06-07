@@ -56,9 +56,7 @@ export class AiportsComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router,
-              // private matDialog: MatDialog
-  ) {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -78,7 +76,6 @@ export class AiportsComponent implements OnInit {
     fetch('https://travelpayouts-travelpayouts-flight-data-v1.p.rapidapi.com/data/en-GB/airports.json', options)
       .then(response => response.json())
       .then(response => this.airports = response)
-      .then(response => console.log(response))
       .catch(err => console.error(err));
   }
 
