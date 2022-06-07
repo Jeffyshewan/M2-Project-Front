@@ -1,11 +1,10 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./pages/home/home.component";
 import {LoginComponent} from "./features/login/login.component";
 import {LogoutComponent} from "./features/logout/logout.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
 import {NotFoundComponent} from "./features/not-found/not-found.component";
-import {AiportsComponent} from "./pages/aiports/aiports.component";
 
 
 const routes: Routes = [
@@ -15,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'airports',
-    component: AiportsComponent,
+    loadChildren: () => import('./pages/aiports/airports.module').then(m => m.AirportsModule),
   },
   {
     path: 'profile',
@@ -36,8 +35,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules,
+    relativeLinkResolution: 'legacy',
+  }),
+  ],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {
 }

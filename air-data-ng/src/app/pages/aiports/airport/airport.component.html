@@ -1,1 +1,38 @@
-<p>airport works!</p>
+<span>
+  <div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{airport.name}}</mat-card-title>
+        <mat-card-subtitle><mat-icon>pin_drop</mat-icon>
+          {{airport.location}}
+          - {{airport.street_number}} {{airport.street}} {{airport.postal_code}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>Here are some information about the airport : </p>
+        <span>
+          <div>iata code : {{airport.iata}}</div>
+          <div>icao code : {{airport.icao}}</div>
+        </span>
+
+        <p>Contact : </p>
+        <span>
+          <div>phone : {{airport.phone}}</div>
+          <div>phone : {{airport.website}}</div>
+        </span>
+
+        <p>Location : </p>
+        <div id="map"><google-map
+          height="400px"
+          width="100%"
+          [options]="mapOptions">
+
+        </google-map></div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</span>

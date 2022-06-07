@@ -1,8 +1,9 @@
 <div class="airportComponent">
   <ag-grid-angular
-    style="width: 90%; height: 100%; margin: auto"
+    style="width: 85%; height: 100%; margin: auto"
     class="ag-theme-material"
     [rowData]="airports"
+    [rowStyle]="rowStyleAgGrid"
     [columnDefs]="columnDefs"
     [gridOptions]="gridOptions"
     [defaultColDef]="defaultColDef">

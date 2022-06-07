@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Airport} from "../../features/shared/models/airport";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-aiports',
@@ -12,7 +13,11 @@ export class AiportsComponent implements OnInit {
     pagination: true,
     paginationPageSize: 15,
     animateRows: true,
+    onCellClicked: (event: any) => this.navigateToAirport(event),
   };
+  public rowStyleAgGrid = {
+    cursor: 'pointer',
+  }
 
   public defaultColDef = {
     resizable: true,
@@ -51,7 +56,9 @@ export class AiportsComponent implements OnInit {
     },
   ];
 
-  constructor() {
+  constructor(private router: Router,
+              // private matDialog: MatDialog
+  ) {
   }
 
   ngOnInit(): void {
@@ -73,5 +80,12 @@ export class AiportsComponent implements OnInit {
       .then(response => this.airports = response)
       .then(response => console.log(response))
       .catch(err => console.error(err));
+  }
+
+  navigateToAirport(event: any) {
+    if(event.colDef.code !== 'button') {
+      console.log(event.data.code);
+      this.router.navigate(['/airports/'+ event.data.code], event.data.code);
+    }
   }
 }

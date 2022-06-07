@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {AirportData} from "../../../features/shared/models/airport-data";
+import LatLngLiteral = google.maps.LatLngLiteral;
 
 @Component({
   selector: 'app-airport',
@@ -7,9 +10,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AirportComponent implements OnInit {
 
-  constructor() { }
+  mapOptions: google.maps.MapOptions = {
+    center: { lat: 0, lng: 0 }
+  }
+  airport!: AirportData;
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute) {
   }
 
+  ngOnInit(): void {
+    this.getDataFromAirport(this.route.snapshot.params['code']);
+  }
+
+  getDataFromAirport(iata: string) {
+    let latitude: number = 25;
+    let longitude: number = 25;
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Host': 'airport-info.p.rapidapi.com',
+        'X-RapidAPI-Key': 'c4f23f0c7fmsh782b7e17ed92d8bp1e84c0jsn36a614383de3'
+      }
+    };
+
+    fetch('https://airport-info.p.rapidapi.com/airport?iata=' + iata, options)
+      .then(response => response.json())
+      .then(response => this.airport = response)
+      .then(response => this.getPosition())
+      .catch(err => console.error(err));
+  }
+
+  getPosition() {
+    this.mapOptions = {
+      center: { lat: this.airport.latitude, lng: this.airport.longitude },
+    }
+    console.log('hoy' + this.mapOptions);
+  }
 }
