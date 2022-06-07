@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Country} from "../../features/shared/models/country";
-import {Airport} from "../../features/shared/models/airport";
 
 @Component({
   selector: 'app-home',

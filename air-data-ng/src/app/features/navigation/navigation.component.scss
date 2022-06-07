@@ -3,21 +3,12 @@ body{
   background: #007bff;
   background: linear-gradient(to right, #0062E6, #33AEFF);
 }
-.carousel-item {
-  height: 100vh;
-  min-height: 350px;
-  background: no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
 .filter-green{
   filter: invert(100%) sepia(7%) saturate(0%) hue-rotate(145deg) brightness(109%) contrast(107%);;
 }
 
 img {
-  width: 75px;
+  width: 60px;
   margin-right: 25px;
 }
 
@@ -29,4 +20,9 @@ img {
   font-weight: bolder;
   font-size: 20px;
   margin: 15px;
+}
+
+.navbar-expand-lg {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
 }
