@@ -1,0 +1,27 @@
+.menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 10px 0;
+  background-color: lightgray;
+  font-size: 20px;
+}
+
+.left-menu {
+  justify-content: left;
+  margin-left: 5%;
+  width: 20%;
+
+  .logo {
+    cursor: pointer;
+  }
+}
+
+.right-menu {
+  justify-content: end;
+  margin-right: 5%;
+  display: flex;
+}
+
+.menu-button {
+  margin: 5px;
+}
