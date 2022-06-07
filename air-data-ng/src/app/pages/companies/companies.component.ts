@@ -14,22 +14,25 @@ export class CompaniesComponent implements OnInit {
   columnDefs = [
     {
       field: 'name_translations.en',
+      headerName: 'Name',
     },
     {
       field: 'code',
+      headerName: 'Company code',
     },
     {
       field: 'is_lowcost',
+      headerName: 'Is the company lowcost ?',
     },
   ];
   public gridOptions = {
     pagination: true,
     paginationPageSize: 15,
     animateRows: true,
-    onCellClicked: (event: any) => this.navigateToCompany(event),
+    // onCellClicked: (event: any) => this.navigateToCompany(event),
   };
   public rowStyleAgGrid = {
-    cursor: 'pointer',
+    // cursor: 'pointer',
   }
 
   public defaultColDef = {

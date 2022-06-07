@@ -1,1 +1,14 @@
-<p>company works!</p>
+<div class="companyComponent">
+<input type="text" id="inputCode" maxlength="3" [value]="code" [(ngModel)]="inputCode">
+<input type="number" id="inputLimit" maxlength="3" [(ngModel)]="inputLimit">
+  <button (click)="getCompanyRoutes()">chercher</button>
+  <ag-grid-angular
+    style="width: 60%; height: 100%; margin: auto"
+    class="ag-theme-material"
+    [rowData]="routes"
+    [rowStyle]="rowStyleAgGrid"
+    [columnDefs]="columnDefs"
+    [gridOptions]="gridOptions"
+    [defaultColDef]="defaultColDef">
+  </ag-grid-angular>
+</div>

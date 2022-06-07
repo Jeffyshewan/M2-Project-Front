@@ -32,27 +32,35 @@ export class AiportsComponent implements OnInit {
   columnDefs = [
     {
       field: 'code',
+      headerName: 'Airport code (IATA code)',
     },
     {
       field: 'city_code',
+      headerName: 'City code',
     },
     {
       field: 'country_code',
+      headerName: 'Country code',
     },
     {
       field: 'name_translations.en',
+      headerName: 'Airport Name (english)',
     },
     {
       field: 'time_zone',
+      headerName: 'Time zone',
     },
     {
       field: 'flightable',
+      headerName: 'Can we flight here ?',
     },
     {
       field: 'name',
+      headerName: 'Airport Name',
     },
     {
       field: 'iata_type',
+      headerName: 'Airport type',
     },
   ];
 
