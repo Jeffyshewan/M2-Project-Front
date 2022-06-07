@@ -1,24 +1,23 @@
-.menu {
-  justify-content: space-between;
-  position: fixed;
+html,
+body {
+  height: 15%;
   bottom: 0;
+  position: fixed;
   width: 100%;
-  padding: 10px 0 10px 0;
-  background-color: lightgray;
-}
-.left-menu {
-  justify-content: left;
-  margin-left: 5%;
 }
 
-.right-menu {
-  justify-content: end;
-  margin-right: 5%;
-  img {
-    width: 30px;
-  }
+#page-content {
+  flex: 1 0 auto;
 }
 
-.menu-button {
-  margin: 5px;
+/* Other Classes for Page Styling */
+
+body {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
+img {
+  width: 40px;
+  cursor: pointer;
 }
