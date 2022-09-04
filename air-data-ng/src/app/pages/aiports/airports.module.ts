@@ -9,11 +9,13 @@ import {MatMenuModule} from "@angular/material/menu";
 import {AgGridModule} from "ag-grid-angular";
 import {MatCardModule} from "@angular/material/card";
 import {GoogleMapsModule} from "@angular/google-maps";
+import { AirportFlightsComponent } from './airport/airport-flights/airport-flights.component';
 
 @NgModule({
   declarations: [
     AiportsComponent,
     AirportComponent,
+    AirportFlightsComponent,
   ],
   imports: [
     CommonModule,
