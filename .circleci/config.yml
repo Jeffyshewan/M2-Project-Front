@@ -13,16 +13,9 @@ jobs:
       - image: circleci/node:16-browsers
     steps:
       - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
           name: install-dependencies
           command: yarn install
-      - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
-            - ./node_modules
       - run:
           name: angular-build
           command: yarn ng -- build --prod --aot --no-progress
