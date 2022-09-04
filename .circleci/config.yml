@@ -10,7 +10,7 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     working_directory: ~/angular-cli-circleci
     docker:
-      - image: circleci/node:16-browsers
+      - image: circleci/node:16
     steps:
       - checkout
       - run:
@@ -18,7 +18,7 @@ jobs:
           command: yarn install
       - run:
           name: angular-build
-          command: yarn ng -- build --prod --aot --no-progress
+          command: yarn ng --build --prod --aot --no-progress
       - run:
           name: angular-test
           command: yarn test -- --single-run --no-progress
