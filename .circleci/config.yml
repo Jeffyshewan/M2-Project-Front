@@ -5,22 +5,41 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  say-hello:
+  install-build:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    working_directory: ~/angular-cli-circleci
     docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+      - image: circleci/node:16-browsers
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: install-dependencies
+          command: yarn install
+      - save_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+            - ./node_modules
+      - run:
+          name: angular-build
+          command: yarn ng -- build --prod --aot --no-progress
+      - run:
+          name: angular-test
+          command: yarn test -- --single-run --no-progress
+      - store_artifacts:
+          path: test-results.xml
+      - run:
+          name: angular-lint
+          command: yarn lint -- --formatters-dir ./tslint-formatters --format junit -o tslint.xml
+      - store_artifacts:
+          path: tslint.xml
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
+      - install-build
