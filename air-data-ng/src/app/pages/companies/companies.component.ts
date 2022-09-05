@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Companies} from "../../features/shared/models/companies";
 import {Router} from "@angular/router";
 

@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Companies} from "../../../features/shared/models/companies";
 import {Routes} from "../../../features/shared/models/routes";
 
 @Component({
@@ -8,7 +7,7 @@ import {Routes} from "../../../features/shared/models/routes";
   templateUrl: './company.component.html',
   styleUrls: ['./company.component.scss']
 })
-export class CompanyComponent implements OnInit {
+export class CompanyComponent {
 
   inputCode?: string;
   inputLimit?: number;
@@ -43,8 +42,6 @@ export class CompanyComponent implements OnInit {
   constructor(private route: ActivatedRoute) {
   }
 
-  ngOnInit(): void {
-  }
 
   getCompanyRoutes() {
 
