@@ -10,6 +10,7 @@ import {AgGridModule} from "ag-grid-angular";
 import {MatCardModule} from "@angular/material/card";
 import {GoogleMapsModule} from "@angular/google-maps";
 import { AirportFlightsComponent } from './airport/airport-flights/airport-flights.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 @NgModule({
   declarations: [
@@ -17,15 +18,16 @@ import { AirportFlightsComponent } from './airport/airport-flights/airport-fligh
     AirportComponent,
     AirportFlightsComponent,
   ],
-  imports: [
-    CommonModule,
-    AirportsRoutingModule,
-    MatButtonModule,
-    MatIconModule,
-    MatMenuModule,
-    AgGridModule,
-    MatCardModule,
-    GoogleMapsModule
-  ]
+    imports: [
+        CommonModule,
+        AirportsRoutingModule,
+        MatButtonModule,
+        MatIconModule,
+        MatMenuModule,
+        AgGridModule,
+        MatCardModule,
+        GoogleMapsModule,
+        MatFormFieldModule
+    ]
 })
 export class AirportsModule { }

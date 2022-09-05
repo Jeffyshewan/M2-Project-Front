@@ -23,7 +23,6 @@ import {MatCardModule} from "@angular/material/card";
     HomeComponent,
     NavigationComponent,
     FooterComponent,
-
   ],
   imports: [
     BrowserModule,

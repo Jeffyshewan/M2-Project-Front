@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AirportData} from "../../../features/shared/models/airport-data";
-import LatLngLiteral = google.maps.LatLngLiteral;
+
 
 @Component({
   selector: 'app-airport',
@@ -11,11 +11,12 @@ import LatLngLiteral = google.maps.LatLngLiteral;
 export class AirportComponent implements OnInit {
 
   mapOptions: google.maps.MapOptions = {
-    center: { lat: 0, lng: 0 }
+    center: {lat: 0, lng: 0}
   }
   airport!: AirportData;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -42,8 +43,12 @@ export class AirportComponent implements OnInit {
 
   getPosition() {
     this.mapOptions = {
-      center: { lat: this.airport.latitude, lng: this.airport.longitude },
+      center: {lat: this.airport.latitude, lng: this.airport.longitude},
     }
     console.log('hoy' + this.mapOptions);
+  }
+
+  navigateToSearchPage() {
+    this.router.navigate(['airports/' + this.route.snapshot.params['code'] + '/routes']);
   }
 }

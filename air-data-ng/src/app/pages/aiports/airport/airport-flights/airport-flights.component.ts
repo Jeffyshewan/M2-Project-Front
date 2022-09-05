@@ -10,10 +10,10 @@ export class AirportFlightsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.getAirportFlights();
+    this.getAirportRoutes();
   }
 
-  getAirportFlights() {
+  getAirportRoutes() {
     const options = {
       method: 'GET',
       headers: {

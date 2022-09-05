@@ -1,31 +1,31 @@
 <span>
   <div>
-    <mat-card class="example-card">
+    <mat-card class="card">
       <mat-card-header>
-        <mat-card-title>{{airport.name}}</mat-card-title>
+        <mat-card-title><h1>{{airport.name}}</h1></mat-card-title>
         <mat-card-subtitle><mat-icon>pin_drop</mat-icon>
           {{airport.location}}
           - {{airport.street_number}} {{airport.street}} {{airport.postal_code}}</mat-card-subtitle>
       </mat-card-header>
 
       <mat-card-content>
-        <p>Here are some information about the airport : </p>
+        <h2>Here are some information about the airport : </h2>
         <span>
-          <div>iata code : {{airport.iata}}</div>
-          <div>icao code : {{airport.icao}}</div>
+          <div class="text-row"><h3>iata code :</h3> {{airport.iata}}</div>
+          <div class="text-row"><h3>icao code :</h3> {{airport.icao}}</div>
         </span>
       </mat-card-content>
 
       <mat-card-content>
-        <p>Contact : </p>
+        <h2>Contact : </h2>
         <span>
-          <div>phone : {{airport.phone}}</div>
-          <div>website : <a href="{{airport.website}}">{{airport.website}}</a></div>
+          <div class="text-row"><h3>phone :</h3> {{airport.phone}}</div>
+          <div class="text-row"><h3>website :</h3> <a href="{{airport.website}}">{{airport.website}}</a></div>
         </span>
       </mat-card-content>
 
       <mat-card-content>
-        <p>Location : </p>
+        <h2>Location : </h2>
         <div id="map"><google-map
           height="400px"
           width="100%"
@@ -34,8 +34,25 @@
         </google-map></div>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
+        <div class="like-and-share">
+          <button mat-button>LIKE
+            <mat-icon class="material-icons-outlined">
+              favorite_border
+            </mat-icon>
+          </button>
+          <button mat-button>SHARE
+            <mat-icon class="material-icons-outlined">
+              share
+            </mat-icon>
+          </button>
+        </div>
+        <div class="search">
+          <button mat-button (click)="navigateToSearchPage()">SEARCH A ROUTE
+            <mat-icon class="material-icons-outlined">
+              search
+            </mat-icon>
+          </button>
+        </div>
       </mat-card-actions>
     </mat-card>
   </div>
