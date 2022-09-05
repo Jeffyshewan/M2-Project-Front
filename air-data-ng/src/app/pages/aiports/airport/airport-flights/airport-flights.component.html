@@ -1,6 +1,11 @@
-<div class="app-airport-flights">
-  <mat-form-field appearance="fill">
-    <mat-label>petit label</mat-label>
-    <input type="text" matInput>
-  </mat-form-field>
+<div class="airport-flights-component">
+  <ag-grid-angular
+    style="width: 90%; height: 100%; margin: auto; min-width: 300px"
+    class="ag-theme-material"
+    [rowData]="routes"
+    [rowStyle]="rowStyleAgGrid"
+    [columnDefs]="columnDefs"
+    [gridOptions]="gridOptions"
+    [defaultColDef]="defaultColDef">
+  </ag-grid-angular>
 </div>

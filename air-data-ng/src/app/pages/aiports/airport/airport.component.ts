@@ -39,16 +39,17 @@ export class AirportComponent implements OnInit {
       .then(response => this.airport = response)
       .then(response => this.getPosition())
       .catch(err => console.error(err));
+
+    console.log()
   }
 
   getPosition() {
     this.mapOptions = {
       center: {lat: this.airport.latitude, lng: this.airport.longitude},
     }
-    console.log('hoy' + this.mapOptions);
   }
 
   navigateToSearchPage() {
-    this.router.navigate(['airports/' + this.route.snapshot.params['code'] + '/routes']);
+    this.router.navigate(['airports/' + this.airport.icao + '/routes']);
   }
 }

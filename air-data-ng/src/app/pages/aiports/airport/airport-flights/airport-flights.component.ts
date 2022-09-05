@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {Routes} from "../../../../features/shared/models/routes";
 
 @Component({
   selector: 'app-airport-flights',
@@ -7,13 +9,60 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AirportFlightsComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-    this.getAirportRoutes();
+  public gridOptions = {
+    pagination: true,
+    paginationPageSize: 15,
+    animateRows: true,
+    onCellClicked: (event: any) => this.navigateToRoute(event),
+  };
+  public rowStyleAgGrid = {
+    cursor: 'pointer',
   }
 
-  getAirportRoutes() {
+  public defaultColDef = {
+    resizable: true,
+    sortable: true,
+    floatingFilter: true,
+    filter: true,
+    suppressMenu: true,
+  };
+
+  public routes: Routes[] | undefined;
+
+  columnDefs = [
+    {
+      field: 'destination.iata',
+      headerName: 'Airport code (IATA code)',
+    },
+    {
+      field: 'destination.icao',
+      headerName: 'Airport code (ICAO code)',
+    },
+    {
+      field: 'destination.municipalityName',
+      headerName: 'City name',
+    },
+    {
+      field: 'destination.shortName',
+      headerName: 'Shortname',
+    },
+    {
+      field: 'destination.countryCode',
+      headerName: 'Country code',
+    },
+    {
+      field: 'operators.length',
+      headerName: 'Number of company oparating',
+    },
+  ];
+
+  constructor(private route: ActivatedRoute,) { }
+
+  ngOnInit(): void {
+    this.getAirportRoutes(this.route.snapshot.params['code']);
+  }
+
+  getAirportRoutes(icao: string) {
     const options = {
       method: 'GET',
       headers: {
@@ -22,9 +71,13 @@ export class AirportFlightsComponent implements OnInit {
       }
     };
 
-    fetch('https://aerodatabox.p.rapidapi.com/airports/icao/LFQQ/stats/routes/daily', options)
+    fetch('https://aerodatabox.p.rapidapi.com/airports/icao/'+ icao +'/stats/routes/daily', options)
       .then(response => response.json())
-      .then(response => console.log(response))
+      .then(response => this.routes = response.routes)
       .catch(err => console.error(err));
+  }
+
+  private navigateToRoute(event: any) {
+
   }
 }

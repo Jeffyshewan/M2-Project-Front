@@ -1,4 +1,9 @@
+import {Destination} from "./destination";
+import {Companies} from "./companies";
+
 export interface Routes {
 
-  data: string;
+  averageDailyFlights?: number;
+  destination?: Destination;
+  operators?: Companies;
 }
