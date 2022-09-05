@@ -12,12 +12,14 @@ import {GoogleMapsModule} from "@angular/google-maps";
 import {AirportFlightsComponent} from './airport/airport-flights/airport-flights.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import { DestinationInformationsComponent } from './airport/airport-flights/destination-informations/destination-informations.component';
 
 @NgModule({
   declarations: [
     AiportsComponent,
     AirportComponent,
     AirportFlightsComponent,
+    DestinationInformationsComponent,
   ],
   imports: [
     CommonModule,

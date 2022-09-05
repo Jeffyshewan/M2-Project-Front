@@ -24,8 +24,6 @@ export class AirportComponent implements OnInit {
   }
 
   getDataFromAirport(iata: string) {
-    let latitude: number = 25;
-    let longitude: number = 25;
     const options = {
       method: 'GET',
       headers: {
@@ -39,8 +37,6 @@ export class AirportComponent implements OnInit {
       .then(response => this.airport = response)
       .then(response => this.getPosition())
       .catch(err => console.error(err));
-
-    console.log()
   }
 
   getPosition() {

@@ -3,6 +3,9 @@ import {RouterModule, Routes} from "@angular/router";
 import {AirportComponent} from "./airport/airport.component";
 import {AiportsComponent} from "./aiports.component";
 import {AirportFlightsComponent} from "./airport/airport-flights/airport-flights.component";
+import {
+  DestinationInformationsComponent
+} from "./airport/airport-flights/destination-informations/destination-informations.component";
 
 const routes: Routes = [
   {
@@ -12,6 +15,10 @@ const routes: Routes = [
   {
     path: ':code/routes',
     component: AirportFlightsComponent,
+  },
+  {
+    path: ':code/routes/:dest/destination',
+    component: DestinationInformationsComponent,
   },
   {
     path: '',

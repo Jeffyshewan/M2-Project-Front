@@ -1,8 +1,7 @@
 <mat-card class="card">
   <mat-card-header>
     <mat-card-title><h1>{{airport?.name}}</h1></mat-card-title>
-    <mat-card-subtitle>
-      <mat-icon>pin_drop</mat-icon>
+    <mat-card-subtitle><mat-icon>pin_drop</mat-icon>
       {{airport?.location}}
       - {{airport?.street_number}} {{airport?.street}} {{airport?.postal_code}}</mat-card-subtitle>
   </mat-card-header>
@@ -27,32 +26,15 @@
     <h2>Location : </h2>
     <div id="map">
       <google-map
-        height="400px"
-        width="100%"
-        [options]="mapOptions">
+      height="400px"
+      width="100%"
+      [options]="mapOptions">
 
-      </google-map>
+    </google-map>
     </div>
   </mat-card-content>
-  <mat-card-actions>
-    <div class="like-and-share">
-      <button mat-button>LIKE
-        <mat-icon class="material-icons-outlined">
-          favorite_border
-        </mat-icon>
-      </button>
-      <button mat-button>SHARE
-        <mat-icon class="material-icons-outlined">
-          share
-        </mat-icon>
-      </button>
-    </div>
-    <div class="search">
-      <button mat-button (click)="navigateToSearchPage()">SEARCH A ROUTE
-        <mat-icon class="material-icons-outlined">
-          search
-        </mat-icon>
-      </button>
-    </div>
-  </mat-card-actions>
+
+  <mat-card-content>
+    <div *ngFor="let c of companies"></div>
+  </mat-card-content>
 </mat-card>

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Routes} from "../../../../features/shared/models/routes";
 
 @Component({
@@ -56,7 +56,8 @@ export class AirportFlightsComponent implements OnInit {
     },
   ];
 
-  constructor(private route: ActivatedRoute,) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getAirportRoutes(this.route.snapshot.params['code']);
@@ -74,10 +75,15 @@ export class AirportFlightsComponent implements OnInit {
     fetch('https://aerodatabox.p.rapidapi.com/airports/icao/'+ icao +'/stats/routes/daily', options)
       .then(response => response.json())
       .then(response => this.routes = response.routes)
+      .then(response => console.log(this.routes))
+      .then(response => console.log(response))
       .catch(err => console.error(err));
   }
 
   private navigateToRoute(event: any) {
-
+    if(event.colDef.code !== 'button') {
+      console.log(event.data);
+      this.router.navigate(['/airports/'+ this.route.snapshot.params['code'] +'/routes/'+ event.data.destination.iata + '/destination'], event.data.destination.iata);
+    }
   }
 }
